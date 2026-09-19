@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="埋伏电视剧在线观看与剧情介绍页面，提供全集资源、演员表、分集剧情及观看指南。">
+    <meta name="keywords" content="埋伏电视剧, 埋伏在线观看, 埋伏剧情, 埋伏演员表">
+    <title>埋伏电视剧-在线观看与剧情深度解析</title>
+    <style>
+        :root {
+            --primary-color: #e50914; /* 类似Netflix红 */
+            --secondary-color: #141414;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+            --bg-body: #0f0f0f;
+            --bg-card: #1f1f1f;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(20, 20, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%), url('https://picsum.photos/seed/batf/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 2px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 15px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 30px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #c40812;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .episodes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .episode-card {
+            background-color: var(--bg-card);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .episode-thumb {
+            height: 180px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .episode-info {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .episode-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .episode-info span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .episode-card.playing .episode-info h4 {
+            color: var(--primary-color);
+        }
+
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .info-label {
+            width: 80px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        /* Synopsis Section */
+        .synopsis-section {
+            padding: 60px 0;
+            background-color: #151515;
+        }
+
+        .synopsis-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .synopsis-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #ccc;
+        }
+
+        /* Cast Section */
+        .cast-section {
+            padding: 60px 0;
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .cast-card {
+            text-align: center;
+        }
+
+        .cast-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .cast-card:hover .cast-avatar {
+            border-color: var(--primary-color);
+        }
+
+        .cast-name {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .cast-role {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 40px 0;
+            margin-top: auto;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 500px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">埋伏电视剧</div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#episodes">分集剧情</a>
+                <a href="#cast">演员表</a>
+                <a href="#about">剧情简介</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <span class="hero-tag">独家热播</span>
+                <h1>埋伏</h1>
+                <div class="hero-meta">
+                    <span>2023</span>
+                    <span>42集</span>
+                    <span>剧情 / 悬疑</span>
+                    <span>中国大陆</span>
+                </div>
+                <p class="hero-desc">
+                    在错综复杂的都市丛林中，一场精心策划的"埋伏"悄然拉开帷幕。本剧讲述了刑侦支队队长林远与神秘黑客联手，揭开一桩跨越十年的惊天阴谋。剧情跌宕起伏，烧脑反转不断，带你体验心跳加速的追凶之旅。
+                </p>
+                <div>
+                    <button class="btn" onclick="alert('正在跳转至播放页面...')">立即观看</button>
+                    <button class="btn btn-outline">加入片单</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="info-grid">
+                <!-- Episodes Column -->
+                <section id="episodes">
+                    <h2 class="section-title">全集剧集</h2>
+                    <div class="episodes-list">
+                        <!-- Episode 1 -->
+                        <div class="episode-card">
+                            <div class="episode-thumb" style="background-image: url('https://picsum.photos/seed/ep1/300/400');"></div>
+                            <div class="episode-info">
+                                <h4>第1集</h4>
+                                <span>42:15</span>
+                            </div>
+                        </div>
+                        <!-- Episode 2 -->
+                        <div class="episode-card">
+                            <div class="episode-thumb" style="background-image: url('https://picsum.photos/seed/ep2/300/400');"></div>
+                            <div class="episode-info">
+                                <h4>第2集</h4>
+                                <span>41:50</span>
+                            </div>
+                        </div>
+                        <!-- Episode 3 -->
+                        <div class="episode-card playing">
+                            <div class="episode-thumb" style="background-image: url('https://picsum.photos/seed/ep3/300/400');"></div>
+                            <div class="episode-info">
+                                <h4>第3集</h4>
+                                <span>43:00</span>
+                            </div>
+                        </div>
+                        <!-- Episode 4 -->
+                        <div class="episode-card">
+                            <div class="episode-thumb" style="background-image: url('https://picsum.photos/seed/ep4/300/400');"></div>
+                            <div class="episode-info">
+                                <h4>第4集</h4>
+                                <span>40:30</span>
+                            </div>
+                        </div>
+                        <!-- Episode 5 -->
+                        <div class="episode-card">
+                            <div class="episode-thumb" style="background-image: url('https://picsum.photos/seed/ep5/300/400');"></div>
+                            <div class="episode-info">
+                                <h4>第5集</h4>
+                                <span>42:10</span>
+                            </div>
+                        </div>
+                        <!-- Episode 6 -->
+                        <div class="episode-card">
+                            <div class="episode-thumb" style="background-image: url('https://picsum.photos/seed/ep6/300/400');"></div>
+                            <div class="episode-info">
+                                <h4>第6集</h4>
+                                <span>41:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sidebar Info -->
+                <aside>
+                    <div class="sidebar-widget">
+                        <h3 class="section-title" style="margin-top:0; border:none; padding:0;">基本信息</h3>
+                        <div class="info-row">
+                            <span class="info-label">导演</span>
+                            <span class="info-value">张伟</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">编剧</span>
+                            <span class="info-value">李明远</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">主演</span>
+                            <span class="info-value">陈刚, 王晓晨</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">类型</span>
+                            <span class="info-value">悬疑, 犯罪, 剧情</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">首播</span>
+                            <span class="info-value">2023-05-20</span>
+                        </div>
+                        <div class="info-row" style="border:none;">
+                            <span class="info-label">评分</span>
+                            <span class="info-value" style="color:#f5c518">8.6 / 10</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget" style="margin-top:20px;">
+                        <h3 class="section-title" style="margin-top:0; border:none; padding:0;">热门标签</h3>
+                        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                            <a href="#" style="font-size:0.85rem; background:#333; padding:4px 8px; border-radius:2px;">悬疑</a>
+                            <a href="#" style="font-size:0.85rem; background:#333; padding:4px 8px; border-radius:2px;">破案</a>
+                            <a href="#" style="font-size:0.85rem; background:#333; padding:4px 8px; border-radius:2px;">高能反转</a>
+                            <a href="#" style="font-size:0.85rem; background:#333; padding:4px 8px; border-radius:2px;">都市</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Synopsis Section -->
+        <section id="about" class="synopsis-section">
+            <div class="container synopsis-content">
+                <h2 class="section-title">剧情简介</h2>
+                <p>
+                    《埋伏》是一部聚焦当代刑侦领域的现实主义题材剧作。故事以一起看似普通的失踪案为切入点，引出了隐藏在城市阴影下的庞大犯罪网络。
+                </p>
+                <p>
+                    刑侦支队队长林远（陈刚 饰）在调查过程中发现，所有线索都指向一个名为"暗网"的地下组织。为了揭露真相，林远不得不打破常规，与神秘黑客苏苏（王晓晨 饰）建立联系。两人从最初的相互猜忌到后来的生死与共，共同面对来自警方内部和犯罪集团的双重压力。
+                </p>
+                <p>
+                    随着调查的深入，林远发现这起案件背后牵扯出一段尘封的往事，而当年的受害者正是他未曾谋面的亲人。在亲情与正义的抉择中，林远如何破除重重迷雾，将罪犯绳之以法，成为了本剧最大的看点。
+                </p>
+            </div>
+        </section>
+
+        <!-- Cast Section -->
+        <section id="cast" class="cast-section">
+            <div class="container">
+                <h2 class="section-title">主要演员</h2>
+                <div class="cast-grid">
+                    <div class="cast-card">
+                        <div class="cast-avatar" style="background-image: url('https://picsum.photos/seed/actor1/200/200');"></div>
+                        <div class="cast-name">陈刚</div>
+                        <div class="cast-role">饰 林远</div>
+                    </div>
+                    <div class="cast-card">
+                        <div class="cast-avatar" style="background-image: url('https://picsum.photos/seed/actor2/200/200');"></div>
+                        <div class="cast-name">王晓晨</div>
+                        <div class="cast-role">饰 苏苏</div>
+                    </div>
+                    <div class="cast-card">
+                        <div class="cast-avatar" style="background-image: url('https://picsum.photos/seed/actor3/200/200');"></div>
+                        <div class="cast-name">张译</div>
+                        <div class="cast-role">饰 队长赵铁</div>
+                    </div>
+                    <div class="cast-card">
+                        <div class="cast-avatar" style="background-image: url('https://picsum.photos/seed/actor4/200/200');"></div>
+                        <div class="cast-name">李晨</div>
+                        <div class="cast-role">饰 反派老K</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 埋伏电视剧资源网. All Rights Reserved.</p>
+            <p style="margin-top:10px; font-size:0.8rem; color:#666;">
+                本站资源仅供学习交流，请支持正版影视作品。
+            </p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
