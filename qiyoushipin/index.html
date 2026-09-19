@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妻友视频-真实夫妻生活与亲密关系分享平台</title>
+    <meta name="description" content="妻友视频致力于提供真实、健康、尊重的夫妻生活与亲密关系分享内容。涵盖夫妻日常、情感交流、健康科普及家庭生活指南，旨在帮助用户建立更和谐的亲密关系。">
+    <meta name="keywords" content="妻友视频,夫妻生活,亲密关系,家庭情感,健康科普">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --primary-hover: #b71c1c;
+            --secondary-color: #f5f5f5;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: #eeeeee;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-search {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .btn-search:hover {
+            background: var(--secondary-color);
+            color: var(--text-main);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(211, 47, 47, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-item h4 {
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 300px;
+            background-color: #eee;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Video Grid */
+        .video-section {
+            padding: 40px 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s;
+        }
+
+        .video-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #f0f0f0;
+        }
+
+        .video-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            backdrop-filter: blur(4px);
+            transition: background 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            background: var(--primary-color);
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: var(--secondary-color);
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ffebee;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 40px 0;
+        }
+
+        .guide-layout {
+            display: flex;
+            gap: 40px;
+        }
+
+        .guide-content {
+            flex: 1;
+        }
+
+        .guide-sidebar {
+            flex: 1;
+            background: #fafafa;
+            padding: 25px;
+            border-radius: var(--radius-lg);
+            height: fit-content;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-list h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .guide-list p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .guide-list a {
+            color: var(--primary-color);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .guide-layout {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            妻友视频
+        </a>
+        <nav class="nav-menu">
+            <a href="#" class="active">首页</a>
+            <a href="#">夫妻日常</a>
+            <a href="#">情感课堂</a>
+            <a href="#">健康科普</a>
+            <a href="#">情感咨询</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-search" aria-label="搜索">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <a href="#" class="btn-primary">注册会员</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">专业情感与生活分享平台</span>
+                <h1>探索亲密关系的美好，<br>分享真实夫妻生活点滴</h1>
+                <p>在这里，我们专注于提供健康、真实、尊重的夫妻互动视频内容。从日常相处到情感交流，帮助每一对伴侣更好地理解彼此，增进感情。</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" class="btn-primary">开始探索</a>
+                    <a href="#" style="padding: 8px 20px; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-weight: 500;">了解更多</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4>10w+</h4>
+                        <p>真实案例</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>5000+</h4>
+                        <p>精选视频</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100w+</h4>
+                        <p>活跃用户</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/seed/love2024/800/600" alt="夫妻温馨生活场景">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门分类</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="cat-icon">💑</span>
+                    <h3>夫妻日常</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">💬</span>
+                    <h3>情感交流</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🛌</span>
+                    <h3>亲密时刻</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🧘</span>
+                    <h3>健康科普</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🧹</span>
+                    <h3>居家生活</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🧠</span>
+                    <h3>心理疏导</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">👨‍👩‍👧</span>
+                    <h3>家庭关系</h3>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🎁</span>
+                    <h3>纪念日</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新精选视频</h2>
+                <a href="#" style="color: var(--text-secondary); font-size: 14px;">查看更多 &rarr;</a>
+            </div>
+            <div class="video-grid">
+                <!-- Video Item 1 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple1/400/225" alt="夫妻日常视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">周末宅家：一起做顿丰盛的晚餐</h3>
+                        <div class="video-meta">
+                            <span>👁 1.2w</span>
+                            <span>💬 328</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 2 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple2/400/225" alt="情感交流视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">如何有效沟通：化解日常小矛盾</h3>
+                        <div class="video-meta">
+                            <span>👁 8.5k</span>
+                            <span>💬 156</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 3 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple3/400/225" alt="健康科普视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">夫妻健康生活指南：运动与饮食</h3>
+                        <div class="video-meta">
+                            <span>👁 2.1w</span>
+                            <span>💬 892</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 4 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple4/400/225" alt="亲密时刻视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">保持激情：给伴侣的惊喜计划</h3>
+                        <div class="video-meta">
+                            <span>👁 5.6k</span>
+                            <span>💬 445</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 5 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple5/400/225" alt="家庭关系视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">婆媳关系处理：相互尊重是关键</h3>
+                        <div class="video-meta">
+                            <span>👁 3.4w</span>
+                            <span>💬 2100</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 6 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple6/400/225" alt="心理疏导视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">工作压力下的情绪调节技巧</h3>
+                        <div class="video-meta">
+                            <span>👁 9.2k</span>
+                            <span>💬 178</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 7 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple7/400/225" alt="居家生活视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">打造温馨卧室：提升幸福感的小细节</h3>
+                        <div class="video-meta">
+                            <span>👁 1.8k</span>
+                            <span>💬 56</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Video Item 8 -->
+                <article class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://picsum.photos/seed/couple8/400/225" alt="纪念日视频封面">
+                        <div class="play-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">结婚纪念日策划：浪漫又不失温馨</h3>
+                        <div class="video-meta">
+                            <span>👁 6.7k</span>
+                            <span>💬 320</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h3>内容真实</h3>
+                    <p>所有视频均来自真实用户分享，拒绝虚假摆拍，还原最真实的夫妻生活状态。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>隐私保护</h3>
+                    <p>严格遵守隐私保护政策，所有上传内容均经过审核，确保用户信息安全。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3>专业指导</h3>
+                    <p>联合情感专家提供专业的心理辅导与建议，帮助解决婚姻中的实际难题。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="guide-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">阅读指南</h2>
+            </div>
+            <div class="guide-layout">
+                <div class="guide-content">
+                    <article style="margin-bottom: 30px;">
+                        <img src="https://picsum.photos/seed/reading/800/400" alt="阅读指南" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: 20px;">
+                        <h3 style="font-size: 20px; margin-bottom: 10px;">如何正确看待夫妻关系中的差异？</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 15px;">夫妻之间性格、习惯、价值观的差异是普遍存在的。本文将探讨如何通过接纳差异、有效沟通来建立更加稳固的亲密关系...</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: 600;">阅读全文 &rarr;</a>
+                    </article>
+                    <article>
+                        <h3 style="font-size: 20px; margin-bottom: 10px;">常见问题解答 (FAQ)</h3>
+                        <div style="margin-top: 20px;">
+                            <details style="margin-bottom: 10px; padding: 15px; background: #f9f9f9; border-radius: 8px; cursor: pointer;">
+                                <summary style="font-weight: 600;">上传视频需要注意什么？</summary>
+                                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">请确保内容健康向上，不包含暴力、色情或违法信息。请勿上传他人隐私影像，保护自己和他人的合法权益。</p>
+                            </details>
+                            <details style="margin-bottom: 10px; padding: 15px; background: #f9f9f9; border-radius: 8px; cursor: pointer;">
+                                <summary style="font-weight: 600;">如何举报违规内容？</summary>
+                                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">您可以在视频页面点击“举报”按钮，选择违规类型并提交。我们的审核团队会在24小时内进行复核。</p>
+                            </details>
+                            <details style="margin-bottom: 10px; padding: 15px; background: #f9f9f9; border-radius: 8px; cursor: pointer;">
+                                <summary style="font-weight: 600">会员有什么特权？</summary>
+                                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">会员可以享受高清无广告观看、专属情感咨询通道、以及参与线下情感沙龙活动的资格。</p>
+                            </details>
+                        </div>
+                    </article>
+                </div>
+                <aside class="guide-sidebar">
+                    <h3 style="font-size: 18px; margin-bottom: 20px; border-left: 3px solid var(--primary-color); padding-left: 10px;">热门话题</h3>
+                    <ul class="guide-list">
+                        <li>
+                            <h4>婚姻保鲜秘籍</h4>
+                            <p>如何让婚姻生活保持新鲜感？</p>
+                            <a href="#">查看详情</a>
+                        </li>
+                        <li>
+                            <h4>沟通的艺术</h4>
+                            <p>学会倾听，是沟通的第一步。</p>
+                            <a href="#">查看详情</a>
+                        </li>
+                        <li>
+                            <h4>家庭理财</h4>
+                            <p>夫妻共同理财的常见误区。</p>
+                            <a href="#">查看详情</a>
+                        </li>
+                        <li>
+                            <h4>育儿经</h4>
+                            <p>如何平衡工作与家庭。</p>
+                            <a href="#">查看详情</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>妻友视频</h2>
+                <p>致力于打造最真实、最健康的夫妻生活分享社区。我们相信，每一对夫妻的日常都值得被记录和尊重。</p>
+            </div>
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">社区规范</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">小红书</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 妻友视频. All Rights Reserved. 请在成年后访问本站，内容仅供交流与分享。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                          </html>
